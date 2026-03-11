@@ -284,6 +284,10 @@ h1 {
   text-align: center;
 }
 
+.onstar-landing-cta {
+  margin: 14px auto 20px;
+}
+
 .onstar-cta {
   display: inline-flex;
   align-items: center;
