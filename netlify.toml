@@ -9,6 +9,16 @@
   to = "/victor/"
   status = 301
 
+[[redirects]]
+  from = "/onstar"
+  to = "/onstar/"
+  status = 301
+
+[[redirects]]
+  from = "/onstar/10-razoes"
+  to = "/onstar/10-razoes/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

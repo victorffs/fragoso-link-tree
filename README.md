@@ -1,6 +1,14 @@
 # fragoso-link-tree
 My own link tree
 
+## GitHub Pages (live preview via GitHub)
+
+The site is automatically deployed to GitHub Pages on every push to `main`.
+
+**Live URL:** https://victorffs.github.io/fragoso-link-tree/
+
+> To enable this for the first time, go to **Settings → Pages** in the repository and set the source to **GitHub Actions**.
+
 ## Deploy (Netlify)
 
 This is a static site. Netlify should publish the repository root (`.`).
