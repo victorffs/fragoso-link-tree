@@ -51,3 +51,22 @@ This generates a folder under `reports/incidents/` with:
 - `post_deploy_check.log`
 
 Use this process as mandatory input for every production UI issue.
+
+## Sensitive info protection (automatic)
+
+Install local Git hooks once:
+
+```bash
+bash scripts/install_git_hooks.sh
+```
+
+What this gives you:
+- `pre-commit` scan of staged files for webhook/token/secret patterns.
+- Commit is blocked if sensitive values are found.
+
+To auto-anonymize a file before commit:
+
+```bash
+python scripts/redact_sensitive.py path/to/file.md
+git add path/to/file.md
+```
