@@ -1,110 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">    
-<title>Victor Fragoso</title>
-<link rel="icon" type="image/x-icon" href="/images/favicon.png">
-<script src="https://unpkg.com/feather-icons"></script>
-<style>
-body {
-    background-color: #FFF8DC;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.links-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.links-container a {
-  width: 80%;
-}
-
-.w3-theme-l1:hover {
-  background-color: #FFF8DC !important;
-}
-
-.margin-top-2 {
-  margin-top: 32px;
-}
-
-.bottom {
-  width: 100%;
-  text-align: center;
-  width: auto;
-  font-weight: bolder;
-}
-
-.bottom span {
-  color: #30706F;
-}
-
-.bottom svg {
-  stroke: #30706F;
-  fill: #30706F;
-}
-
-@media (min-width: 768px) {
-  .link {
-    width: 100%;
-  }
-}
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-</style>
-  </head>
-  <body>
-    <!-- Content container -->
-    <div class="container">
-
-      <!-- Image and name container. Change to your pictue here. -->
-      <div style="text-align: center">
-        <img src="/images/fragoso.jpg" class="w3-margin" alt="image" width="150px" height="150px" style="border-radius: 50%;">
-        <p><span class="name w3-padding w3-teal w3-round" style="font-weight: bolder;">Hi, I'm Victor Fragoso!</span></p>
-        <p style="font-weight: bolder;">Who is Victor Fragoso?</p>
-        <h4 class="margin-top-2" style="text-align: center;">(In Development)</h4>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Victor Fragoso | About</title>
+  <meta name="description" content="More about Victor Fragoso and his professional links." />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="avatar-shell">
+        <img
+          src="../images/ornaments/photo-ornament.svg"
+          class="ornament-overlay"
+          alt=""
+          aria-hidden="true"
+          onload="this.parentElement.classList.add('ornament-loaded')"
+          onerror="this.remove()"
+        />
+        <img src="../images/fragoso.jpg" class="avatar" alt="Victor Fragoso portrait" />
       </div>
+      <h1>VICTOR FRAGOSO</h1>
+      <p class="role">Who is Victor?</p>
+      <p class="intro">Field Applications Engineer working with embedded systems, Linux, AI, Cloud and 5G solutions.</p>
+    </header>
 
-      <!-- Links section 3. Replace the # inside of the "" with your links. -->
-      <h4 class="margin-top-2" style="text-align: center;">Mini Bio</h4>
-      <div class="links-container">
-        <br>
-        Victor Fragoso, Field Applications Engineer at Fibocom Wireless, specializes in 
-        embedded systems development. He has been active in the technology market since 
-        2015, where he developed IoT projects for smart cities and 5G in industrial 
-        plants. With experience in Linux, AI, Cloud, and Kubernetes, Victor aims to 
-        impact the world through the use of technology, resulting in initiatives already 
-        developed with the Santo André City Hall, TheDevConf, CPBR, FLISOL, WikiLab, 
-        and Liceu Tech.
-        <br>
-      </div>
+    <section class="links" aria-label="Main links">
+      <a href="https://frago.so/" class="link-button" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+      <a href="https://www.linkedin.com/in/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+      <a href="https://github.com/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">GITHUB</a>
+      <a href="../index.html" class="link-button">BACK TO LINKS</a>
+    </section>
 
-
-      <!-- Bottom section 3 -->
-      <div class="bottom margin-top-2 w3-padding w3-round">
-        <span style="vertical-align: 7px;"> 2023 - Victor Fragoso</span>
-      </div>
-
-    </div>
-    <script>
-      feather.replace()
-    </script>
-  </body>  
+    <div class="bottom-icons" aria-hidden="true">👍 💬 ➡️</div>
+    <p class="hint">This page keeps the same visual style while highlighting quick professional information.</p>
+  </main>
+</body>
 </html>

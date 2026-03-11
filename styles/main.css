@@ -1,0 +1,201 @@
+:root {
+  --bg: #f1f2ef;
+  --text: #214f67;
+  --button: #335f75;
+  --button-hover: #2b5266;
+  --button-text: #f6f9fb;
+  --muted: #5f8a7c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Patrick Hand", "Segoe UI", sans-serif;
+}
+
+.page {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  padding: 30px 20px 24px;
+  text-align: center;
+}
+
+.hero {
+  margin-bottom: 24px;
+}
+
+.avatar-shell {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 0;
+}
+
+.ornament-overlay {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 334px;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.avatar-shell.ornament-loaded::before,
+.avatar-shell.ornament-loaded::after {
+  display: none;
+}
+
+.avatar-shell::before,
+.avatar-shell::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 292px;
+  height: 292px;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(63, 106, 126, 0.98) 0 4px,
+    transparent 4px 10px
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 14px),
+    #000 calc(100% - 14px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 14px),
+    #000 calc(100% - 14px)
+  );
+  opacity: 0.95;
+  z-index: 0;
+}
+
+.avatar-shell::before {
+  transform: translate(-74%, -50%) rotate(-10deg);
+  clip-path: inset(12% 58% 12% 0 round 50%);
+}
+
+.avatar-shell::after {
+  transform: translate(-26%, -50%) rotate(10deg);
+  clip-path: inset(12% 0 12% 58% round 50%);
+}
+
+.avatar {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 4px 0 1px;
+  font-size: 2.95rem;
+  line-height: 0.95;
+  letter-spacing: 0.3px;
+}
+
+.role {
+  margin: 0;
+  font-size: 2.18rem;
+  line-height: 1;
+}
+
+.intro {
+  margin: 22px auto 26px;
+  max-width: 420px;
+  font-size: 1.02rem;
+  line-height: 1.2;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 68px;
+  border-radius: 999px;
+  background: var(--button);
+  color: var(--button-text);
+  text-decoration: none;
+  font-size: 1.85rem;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.link-button::before {
+  content: "✱";
+  font-size: 2.5rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+.link-button:focus-visible {
+  outline: 3px solid #264f63;
+  outline-offset: 2px;
+}
+
+.bottom-icons {
+  margin: 38px 0 14px;
+  font-size: 2.35rem;
+  letter-spacing: 7px;
+}
+
+.hint {
+  margin: 0 auto;
+  max-width: 420px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .page {
+    padding-top: 36px;
+  }
+
+  .avatar {
+    width: 240px;
+    height: 240px;
+  }
+
+  .ornament-overlay {
+    width: 346px;
+  }
+
+  .role {
+    font-size: 2.35rem;
+  }
+
+  .intro {
+    font-size: 1.08rem;
+  }
+}
