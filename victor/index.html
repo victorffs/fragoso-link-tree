@@ -32,13 +32,49 @@
 
     <section class="links" aria-label="Main links">
       <a href="https://frago.so/" class="link-button" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+      <a href="https://wa.me/5511970791572?text=Vi%20o%20seu%20portfolio%20e%20gostaria%20de%20conversar." class="link-button" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
       <a href="https://www.linkedin.com/in/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
       <a href="https://github.com/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">GITHUB</a>
       <a href="../index.html" class="link-button">BACK TO LINKS</a>
     </section>
 
-    <div class="bottom-icons" aria-hidden="true">👍 💬 ➡️</div>
-    <p class="hint">This page keeps the same visual style while highlighting quick professional information.</p>
+    <nav class="bottom-icons" aria-label="Quick actions">
+      <a class="icon-action" href="https://www.linkedin.com/in/victorffs/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn">👍</a>
+      <a class="icon-action" href="https://wa.me/5511970791572?text=Vi%20o%20seu%20portfolio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer" aria-label="Send WhatsApp message">💬</a>
+      <button class="icon-action js-share" type="button" aria-label="Share this page">➡️</button>
+    </nav>
   </main>
+  <script>
+    const shareButton = document.querySelector('.js-share');
+
+    if (shareButton) {
+      shareButton.addEventListener('click', async () => {
+        const shareData = {
+          title: 'Victor Fragoso',
+          text: 'Check out Victor Fragoso\'s portfolio',
+          url: window.location.href,
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (error) {
+            if (error.name === 'AbortError') {
+              return;
+            }
+          }
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(window.location.href);
+          shareButton.textContent = '✅';
+          setTimeout(() => {
+            shareButton.textContent = '➡️';
+          }, 1300);
+        }
+      });
+    }
+  </script>
 </body>
 </html>

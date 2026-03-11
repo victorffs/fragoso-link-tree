@@ -118,61 +118,119 @@ h1 {
 
 .intro {
   margin: 22px auto 26px;
-  max-width: 420px;
+  max-width: 360px;
   font-size: 1.02rem;
   line-height: 1.2;
 }
 
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 390px;
+  margin: 0 auto;
 }
 
-.link-button {
+.quick-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  width: 100%;
-  min-height: 68px;
-  border-radius: 999px;
+  gap: 8px;
+  min-height: 128px;
+  border-radius: 16px;
   background: var(--button);
   color: var(--button-text);
   text-decoration: none;
-  font-size: 1.85rem;
-  line-height: 1;
-  letter-spacing: 0.8px;
+  padding: 12px;
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.link-button::before {
-  content: "✱";
-  font-size: 2.5rem;
+.quick-icon {
+  font-size: 2rem;
   line-height: 1;
-  transform: translateY(-1px);
 }
 
-.link-button:hover,
-.link-button:focus-visible {
+.quick-label {
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+
+.quick-card:hover,
+.quick-card:focus-visible {
   background: var(--button-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-.link-button:focus-visible {
+.quick-card:focus-visible {
   outline: 3px solid #264f63;
   outline-offset: 2px;
 }
 
 .bottom-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   margin: 38px 0 14px;
   font-size: 2.35rem;
-  letter-spacing: 7px;
+  letter-spacing: 0;
 }
 
-.hint {
-  margin: 0 auto;
-  max-width: 420px;
+.icon-action {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 2.35rem;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.icon-action:hover,
+.icon-action:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.icon-action:focus-visible {
+  outline: 3px solid #264f63;
+  outline-offset: 2px;
+}
+
+.share-cta {
+  border: 0;
+  background: var(--button);
+  color: var(--button-text);
+  border-radius: 999px;
+  min-height: 54px;
+  padding: 0 26px;
+  font: inherit;
+  font-size: 1.45rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.share-cta:hover,
+.share-cta:focus-visible {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+.share-cta:focus-visible {
+  outline: 3px solid #264f63;
+  outline-offset: 2px;
+}
+
+.share-feedback {
+  min-height: 1.4em;
+  margin: 10px 0 0;
   color: var(--muted);
   font-size: 1rem;
 }
@@ -197,5 +255,14 @@ h1 {
 
   .intro {
     font-size: 1.08rem;
+  }
+
+  .quick-grid {
+    max-width: 420px;
+    gap: 16px;
+  }
+
+  .quick-card {
+    min-height: 136px;
   }
 }

@@ -27,18 +27,86 @@
       </div>
       <h1>VICTOR FRAGOSO</h1>
       <p class="role">Software Engineer</p>
-      <p class="intro">To learn more about me, you can click the links below!</p>
+      <p class="intro">Choose an option below to connect with me.</p>
     </header>
 
-    <section class="links" aria-label="Main links">
-      <a href="https://frago.so/victor/" class="link-button" target="_blank" rel="noopener noreferrer">PORTFOLIO</a>
-      <a href="https://www.linkedin.com/in/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-      <a href="https://github.com/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">GITHUB</a>
-      <a href="https://www.hackster.io/victorffs/" class="link-button" target="_blank" rel="noopener noreferrer">HACKSTER</a>
+    <section class="quick-grid" aria-label="Main links">
+      <a href="https://portfolio.frago.so/resume-fragoso.pdf" class="quick-card" target="_blank" rel="noopener noreferrer">
+        <span class="quick-icon" aria-hidden="true">📄</span>
+        <span class="quick-label">RESUME</span>
+      </a>
+      <a href="https://portfolio.frago.so/" class="quick-card" target="_blank" rel="noopener noreferrer">
+        <span class="quick-icon" aria-hidden="true">🗂️</span>
+        <span class="quick-label">PORTFOLIO</span>
+      </a>
+      <a href="https://wa.me/5511970791572?text=Vi%20o%20seu%20portfolio%20e%20gostaria%20de%20conversar." class="quick-card" target="_blank" rel="noopener noreferrer">
+        <span class="quick-icon" aria-hidden="true">💬</span>
+        <span class="quick-label">WHATSAPP</span>
+      </a>
+      <a href="https://www.linkedin.com/in/victorffs/" class="quick-card" target="_blank" rel="noopener noreferrer">
+        <span class="quick-icon" aria-hidden="true">👤</span>
+        <span class="quick-label">LINKEDIN</span>
+      </a>
     </section>
 
-    <div class="bottom-icons" aria-hidden="true">👍 💬 ➡️</div>
-    <p class="hint">You can add your links to this component using the link list above.</p>
+    <nav class="bottom-icons" aria-label="Quick actions">
+      <button class="share-cta js-share" type="button" aria-label="Share this page">🔗 Share this page</button>
+    </nav>
+    <p class="share-feedback" role="status" aria-live="polite"></p>
   </main>
+  <script>
+    const shareButton = document.querySelector('.js-share');
+    const shareFeedback = document.querySelector('.share-feedback');
+
+    let feedbackTimer;
+
+    const showShareFeedback = (message) => {
+      if (!shareFeedback) {
+        return;
+      }
+
+      shareFeedback.textContent = message;
+      clearTimeout(feedbackTimer);
+      feedbackTimer = setTimeout(() => {
+        shareFeedback.textContent = '';
+      }, 2200);
+    };
+
+    if (shareButton) {
+      shareButton.addEventListener('click', async () => {
+        const shareData = {
+          title: 'Victor Fragoso',
+          text: 'Check out Victor Fragoso\'s portfolio',
+          url: window.location.href,
+        };
+
+        let copied = false;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            copied = true;
+            showShareFeedback('Link copied to clipboard!');
+          } catch (error) {
+          }
+        }
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (error) {
+            if (error.name === 'AbortError') {
+              return;
+            }
+          }
+        }
+
+        if (!copied) {
+          showShareFeedback('Could not copy the link.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
