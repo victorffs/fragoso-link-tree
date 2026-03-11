@@ -52,6 +52,65 @@
         <span class="quick-label">LINKEDIN</span>
       </a>
     </section>
+
+    <nav class="bottom-icons" aria-label="Quick actions">
+      <button class="share-cta js-share" type="button" aria-label="Share this page">🔗 Share this page</button>
+    </nav>
+    <p class="share-feedback" role="status" aria-live="polite"></p>
   </main>
+  <script>
+    const shareButton = document.querySelector('.js-share');
+    const shareFeedback = document.querySelector('.share-feedback');
+
+    let feedbackTimer;
+
+    const showShareFeedback = (message) => {
+      if (!shareFeedback) {
+        return;
+      }
+
+      shareFeedback.textContent = message;
+      clearTimeout(feedbackTimer);
+      feedbackTimer = setTimeout(() => {
+        shareFeedback.textContent = '';
+      }, 2200);
+    };
+
+    if (shareButton) {
+      shareButton.addEventListener('click', async () => {
+        const shareData = {
+          title: 'Victor Fragoso | OnStar',
+          text: 'Confira a página OnStar de Victor Fragoso',
+          url: window.location.href,
+        };
+
+        let copied = false;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          try {
+            await navigator.clipboard.writeText(window.location.href);
+            copied = true;
+            showShareFeedback('Link copied to clipboard!');
+          } catch (error) {
+          }
+        }
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (error) {
+            if (error.name === 'AbortError') {
+              return;
+            }
+          }
+        }
+
+        if (!copied) {
+          showShareFeedback('Could not copy the link.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
